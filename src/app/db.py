@@ -135,12 +135,14 @@ def select_grocery_item(item, price):
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.execute(SELECT_GROCERIES (item, price))
-        list = c.fetchone()
+        print(1)
+        c.execute(SELECT_GROCERIES, (item, price))
+        print("Literal has been executed properly")
+        list = c.fetchall()
         c.close()
         output = ''
         for x in list: 
-            output = output + str(x[1]) + ' ' + str(x[2]) + str(x[3]) + '\n'
+            output = output + str(x[1]) + ' ' + str(x[2]) + ' ' + str(x[3]) + '\n'
         return output
     
 def select_household_item(item, price):
@@ -148,11 +150,11 @@ def select_household_item(item, price):
     with conn:
         c = conn.cursor()
         c.execute(SELECT_HOUSEHOLD, (item, price))
-        list = c.fetchone()
+        list = c.fetchall()
         c.close()
         output = ''
         for x in list: 
-            output = output + str(x[1]) + ' ' + str(x[2]) + str(x[3]) + '\n'
+            output = output + str(x[1]) + ' ' + str(x[2]) + ' ' + str(x[3]) + '\n'
         return output
 
 def select_entertainment_item(item, price):
@@ -160,11 +162,11 @@ def select_entertainment_item(item, price):
     with conn:
         c = conn.cursor()
         c.execute(SELECT_ENTERTAINMENT, (item, price))
-        list = c.fetchone()
+        list = c.fetchall()
         c.close()
         output = ''
         for x in list: 
-            output = output + str(x[1]) + ' ' + str(x[2]) + str(x[3]) + '\n'
+            output = output + str(x[1]) + ' ' + str(x[2]) + ' ' + str(x[3]) + '\n'
         return output
 
 def select_other_item(item, price):
@@ -172,11 +174,11 @@ def select_other_item(item, price):
     with conn:
         c = conn.cursor()
         c.execute(SELECT_OTHER, (item, price))
-        list = c.fetchone()
+        list = c.fetchall()
         c.close()
         output = ''
         for x in list: 
-            output = output + str(x[1]) + ' ' + str(x[2]) + str(x[3]) + '\n'
+            output = output + str(x[1]) + ' ' + str(x[2]) + ' ' + str(x[3]) + '\n'
         return output
 
 

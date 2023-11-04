@@ -57,24 +57,28 @@ class ExpenseTracker:
 
 
     def groceries(self):
+
+
         top = Toplevel(self.frame)
-        top.title("Groceries expenses")
-        l1 = Label(top, text = 'Name of item').grid(row=1, column=0, sticky = W, pady = 2)
-        l2 = Label(top, text = 'Price').grid(row=2, column=0, sticky = W, pady = 2)
-        l3 = Label(top, text = 'Date').grid(row=3, column=0, sticky = W, pady = 2)
+        top.title('Groceries expenses')
+        l1 = Label(top, text="Name of item").grid(row = 1, column = 0, sticky = W, pady = 2)
+        l2 = Label(top, text="Price").grid(row = 2, column = 0, sticky = W, pady = 2)
+        l3 = Label(top, text="Date of purchase").grid(row = 3, column = 0, sticky = W, pady = 2)
 
         e1 = Entry(top)
-        e1.grid(row = 1 , column = 1, sticky = W, pady = 2)
+        e1.grid(row=1, column=1, sticky=W, pady=2)
         e2 = Entry(top)
-        e2.grid(row = 2 , column = 1, sticky = W, pady = 2)
+        e2.grid(row=2, column=1, sticky=W, pady=2)
         e3 = Entry(top)
-        e3.grid(row = 3 , column = 1, sticky = W, pady = 2)
+        e3.grid(row=3, column=1, sticky=W, pady=2)
 
-        text = Text(top, width = 40, height = 10)
-        text.grid(row = 5, column = 1, columnspan = 2)
+        text = Text(top, width=40, height=10)
+        text.grid(row=5, column=1, columnspan=2)
 
-        B1 = Button(top, text = "Insert Values", command = lambda: (self.insert(db.insert_groceries,e1,e2,e3), self.added(top)))
-        B1.grid(row = 1, column = 2)
+        #BUTTONS###
+
+        B1 = Button(top, text="Insert Values", command=lambda: (self.insert(db.insert_groceries,e1,e2,e3), self.added(top)))
+        B1.grid(row=1, column=2)
 
         B2 = Button(top, text="Select All", command=lambda: (text.delete(1.0, END), text.insert(END, self.display_all(db.select_all_groceries()))))
         B2.grid(row=2, column=2)
@@ -129,7 +133,7 @@ class ExpenseTracker:
     def entertainment(self):
         top = Toplevel(self.frame)
         top.title('Entertainment expenses')
-        l1 = Label(top, text="Name of good").grid(row=1, column=0, sticky=W, pady=2)
+        l1 = Label(top, text="Name of item").grid(row=1, column=0, sticky=W, pady=2)
         l2 = Label(top, text="Price").grid(row=2, column=0, sticky=W, pady=2)
         l3 = Label(top, text="Date of purchase").grid(row=3, column=0, sticky=W, pady=2)
 
@@ -167,7 +171,7 @@ class ExpenseTracker:
     def other(self):
         top = Toplevel(self.frame)
         top.title('Entertainment expenses')
-        l1 = Label(top, text="Name of good").grid(row=1, column=0, sticky=W, pady=2)
+        l1 = Label(top, text="Name of item").grid(row=1, column=0, sticky=W, pady=2)
         l2 = Label(top, text="Price").grid(row=2, column=0, sticky=W, pady=2)
         l3 = Label(top, text="Date of purchase").grid(row=3, column=0, sticky=W, pady=2)
 
