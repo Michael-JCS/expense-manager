@@ -51,29 +51,33 @@ def insert_groceries(item, price, date):
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(INSERT_GROCERIES, (item, price, date))
+        c.execute(INSERT_GROCERIES, (item, price, date))
         conn.commit()
+        c.close()
     
 def insert_household(item, price, date):
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(INSERT_HOUSEHOLD, (item, price, date))
+        c.execute(INSERT_HOUSEHOLD, (item, price, date))
         conn.commit()
+        c.close()
 
 def insert_entertainment(item, price, date):
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(INSERT_ENTERTAINMENT, (item, price, date))
+        c.execute(INSERT_ENTERTAINMENT, (item, price, date))
         conn.commit()
+        c.close()
 
 def insert_other(item, price, date):
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(INSERT_ENTERTAINMENT, (item, price, date))
+        c.execute(INSERT_ENTERTAINMENT, (item, price, date))
         conn.commit()
+        c.close()
 
 ###SELECT ALL###
 
@@ -81,48 +85,48 @@ def select_all_groceries():
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(SELECT_ALL1)
+        c.execute(SELECT_ALL1)
         list = c.fetchall()
         c.close()
         output = ''
         for x in list: 
-            output = output + str(x[1]) + ' ' + str(x[2]) + str(x[3]) + '\n'
+            output = output + str(x[1]) + ' ' + str(x[2]) + ' ' +str(x[3]) + '\n'
         return output
     
 def select_all_household():
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(SELECT_ALL2)
+        c.execute(SELECT_ALL2)
         list = c.fetchall()
         c.close()
         output = ''
         for x in list: 
-            output = output + str(x[1]) + ' ' + str(x[2]) + str(x[3]) + '\n'
+            output = output + str(x[1]) + ' ' + str(x[2]) + ' ' +str(x[3]) + '\n'
         return output
     
 def select_all_entertainment():
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(SELECT_ALL3)
+        c.execute(SELECT_ALL3)
         list = c.fetchall()
         c.close()
         output = ''
         for x in list: 
-            output = output + str(x[1]) + ' ' + str(x[2]) + str(x[3]) + '\n'
+            output = output + str(x[1]) + ' ' + str(x[2]) + ' ' + str(x[3]) + '\n'
         return output
 
 def select_all_other():
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(SELECT_ALL4)
+        c.execute(SELECT_ALL4)
         list = c.fetchall()
         c.close()
         output = ''
         for x in list: 
-            output = output + str(x[1]) + ' ' + str(x[2]) + str(x[3]) + '\n'
+            output = output + str(x[1]) + ' ' + str(x[2]) + ' ' + str(x[3]) + '\n'
         return output
 
 ###SELECT SPECIFIC###
@@ -131,7 +135,7 @@ def select_grocery_item(item, price):
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(SELECT_GROCERIES (item, price))
+        c.execute(SELECT_GROCERIES (item, price))
         list = c.fetchone()
         c.close()
         output = ''
@@ -143,7 +147,7 @@ def select_household_item(item, price):
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(SELECT_HOUSEHOLD, (item, price))
+        c.execute(SELECT_HOUSEHOLD, (item, price))
         list = c.fetchone()
         c.close()
         output = ''
@@ -155,7 +159,7 @@ def select_entertainment_item(item, price):
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(SELECT_ENTERTAINMENT, (item, price))
+        c.execute(SELECT_ENTERTAINMENT, (item, price))
         list = c.fetchone()
         c.close()
         output = ''
@@ -167,7 +171,7 @@ def select_other_item(item, price):
     conn = sqlite3.connect("data.db")
     with conn:
         c = conn.cursor()
-        c.exceute(SELECT_OTHER, (item, price))
+        c.execute(SELECT_OTHER, (item, price))
         list = c.fetchone()
         c.close()
         output = ''
